@@ -1,9 +1,10 @@
 from config import TOKEN
+import discord
 from discord.ext import commands
 from Utils import CogsLoader
 import Database
 
-client = commands.AutoShardedBot('.')
+client = commands.AutoShardedBot('.', intents=discord.Intents.all())
 
 
 @client.event
