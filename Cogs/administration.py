@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import Database
+from Utils import Checks
 
 
 class Administration(commands.Cog):
@@ -13,6 +14,7 @@ class Administration(commands.Cog):
         aliases=['testers'],
         usage="тестеры <тип действия> <пользователь> [причина]"
     )
+    @Checks.is_staff()
     async def _testers(self, ctx: commands.Context):
         if ctx.invoked_subcommand is None:
             await ctx.send(embed=discord.Embed(
@@ -103,6 +105,7 @@ class Administration(commands.Cog):
         aliases=['staff'],
         usage="стафф <тип действия> <пользователь> [причина]"
     )
+    @commands.is_owner()
     async def _staff(self, ctx: commands.Context):
         if ctx.invoked_subcommand is None:
             await ctx.send(embed=discord.Embed(
