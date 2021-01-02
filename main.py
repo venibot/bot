@@ -5,7 +5,7 @@ from Utils import CogsLoader
 from Utils.APIs import SDC, BotiCord
 import Database
 
-client = commands.AutoShardedBot('///', intents=discord.Intents.all())
+client = commands.AutoShardedBot(Database.get_prefix, intents=discord.Intents.all())
 
 
 @client.event
